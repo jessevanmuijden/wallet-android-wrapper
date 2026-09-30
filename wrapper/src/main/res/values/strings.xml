@@ -25,9 +25,9 @@
     <string name="photo_id_match_nfc_still_disabled">NFC is still off. Turn it on to verify your identity.</string>
     <string name="photo_id_match_cancel">Cancel</string>
 
-    <!-- Why facetec-api did not issue a credential (credentialIssueErrCode). -->
+    <!-- Why facetec-api did not issue a credential (credentialIssueErrorCode). -->
     <string name="photo_id_match_refused_title">No credential issued</string>
-    <string name="photo_id_match_refused_nfc_not_supported_by_document">This document has no chip that can be read. Please use an e-passport or an ID card with a chip.</string>
+    <string name="photo_id_match_refused_nfc_not_requested">This document cannot be verified by its chip. Please use an e-passport or an ID card whose chip can be read.</string>
     <string name="photo_id_match_refused_nfc_device_not_capable">This phone could not read the chip. Make sure NFC is turned on and try again.</string>
     <string name="photo_id_match_refused_nfc_skipped">Reading the chip in your document is required. Please try again and hold your document against the back of the phone when asked.</string>
     <string name="photo_id_match_refused_nfc_chip_read_failed">The chip in your document could not be read. Please try again and hold the document still against the back of the phone.</string>
