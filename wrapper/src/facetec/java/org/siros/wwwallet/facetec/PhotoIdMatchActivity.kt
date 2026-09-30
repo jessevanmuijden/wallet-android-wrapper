@@ -35,18 +35,18 @@ import timber.log.Timber
  * facetec-api issues nothing without an authenticated read of the document's NFC chip
  * (sirosfoundation/facetec-api#65), so the scan is not started on a phone without NFC, and
  * a user with NFC switched off is sent to the settings first. When the scan completes but no
- * credential is issued, the `credentialIssueErrCode` facetec-api returned is explained to the
+ * credential is issued, the `credentialIssueErrorCode` facetec-api returned is explained to the
  * user instead of silently returning to the wallet.
  */
 class PhotoIdMatchActivity : ComponentActivity() {
     private var sdkInstance: FaceTecSDKInstance? = null
     private var capturedCredentialOfferURI: String? = null
-    private var capturedCredentialIssueErrCode: String? = null
+    private var capturedCredentialIssueErrorCode: String? = null
 
     private val processor =
         PhotoIdMatchSessionRequestProcessor(
             onCredentialOfferReceived = { capturedCredentialOfferURI = it },
-            onCredentialIssueRefused = { capturedCredentialIssueErrCode = it },
+            onCredentialIssueRefused = { capturedCredentialIssueErrorCode = it },
         )
 
     private val nfcSettingsLauncher =
@@ -223,7 +223,7 @@ class PhotoIdMatchActivity : ComponentActivity() {
 
         Timber.i("FaceTec session finished with status ${result.status}.")
 
-        val refusal = capturedCredentialIssueErrCode
+        val refusal = capturedCredentialIssueErrorCode
         if (capturedCredentialOfferURI == null && refusal != null) {
             showRefusalAndFinish(refusal)
         } else {
@@ -231,12 +231,12 @@ class PhotoIdMatchActivity : ComponentActivity() {
         }
     }
 
-    private fun showRefusalAndFinish(credentialIssueErrCode: String) {
-        Timber.i("No credential issued: credentialIssueErrCode=$credentialIssueErrCode.")
+    private fun showRefusalAndFinish(credentialIssueErrorCode: String) {
+        Timber.i("No credential issued: credentialIssueErrorCode=$credentialIssueErrorCode.")
 
         val message =
-            when (credentialIssueErrCode) {
-                "nfc_not_supported_by_document" -> R.string.photo_id_match_refused_nfc_not_supported_by_document
+            when (credentialIssueErrorCode) {
+                "nfc_not_requested" -> R.string.photo_id_match_refused_nfc_not_requested
                 "nfc_device_not_capable" -> R.string.photo_id_match_refused_nfc_device_not_capable
                 "nfc_skipped" -> R.string.photo_id_match_refused_nfc_skipped
                 "nfc_chip_read_failed" -> R.string.photo_id_match_refused_nfc_chip_read_failed

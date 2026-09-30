@@ -79,8 +79,8 @@ class PhotoIdMatchSessionRequestProcessor(
 
             // Set when the scan completed but facetec-api refused to issue, e.g. because
             // the document's chip was not read and authenticated.
-            val credentialIssueErrCode = response.optString("credentialIssueErrCode").takeIf { it.isNotBlank() }
-            credentialIssueErrCode?.let(onCredentialIssueRefused)
+            val credentialIssueErrorCode = response.optString("credentialIssueErrorCode").takeIf { it.isNotBlank() }
+            credentialIssueErrorCode?.let(onCredentialIssueRefused)
 
             sessionRequestCallback.processResponse(response.getString("responseBlob"))
         } catch (t: Throwable) {
