@@ -33,6 +33,7 @@
     <string name="photo_id_match_refused_nfc_chip_read_failed">The chip in your document could not be read. Please try again and hold the document still against the back of the phone.</string>
     <string name="photo_id_match_refused_nfc_not_authenticated">The chip in your document could not be verified, so no credential was issued.</string>
     <string name="photo_id_match_refused_chip_untrusted">The chip in your document could not be confirmed as issued by a recognised authority, so no credential was issued.</string>
+    <string name="photo_id_match_refused_policy_rejected">Your scan could not be accepted: your face did not match the document photo closely enough, or this type of document is not accepted. Please try again in good light, or use another identity document.</string>
     <string name="photo_id_match_refused_other">Your identity could not be verified, so no credential was issued. Please try again.</string>
     <string name="photo_id_match_ok">OK</string>
 </resources>
