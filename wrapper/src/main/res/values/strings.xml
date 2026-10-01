@@ -32,6 +32,7 @@
     <string name="photo_id_match_refused_nfc_skipped">Reading the chip in your document is required. Please try again and hold your document against the back of the phone when asked.</string>
     <string name="photo_id_match_refused_nfc_chip_read_failed">The chip in your document could not be read. Please try again and hold the document still against the back of the phone.</string>
     <string name="photo_id_match_refused_nfc_not_authenticated">The chip in your document could not be verified, so no credential was issued.</string>
+    <string name="photo_id_match_refused_chip_untrusted">The chip in your document could not be confirmed as issued by a recognised authority, so no credential was issued.</string>
     <string name="photo_id_match_refused_other">Your identity could not be verified, so no credential was issued. Please try again.</string>
     <string name="photo_id_match_ok">OK</string>
 </resources>
